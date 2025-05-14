@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+    <title>Jadav Gajanand - Portfolio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <!-- Prism.js -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Roboto:wght@300;400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="scroll.js" defer></script>
+    <style>
+        :root {
+            --bg-primary: #0f0f1a;
+            --bg-secondary: #1a1a2e;
+            --text-primary: #e0e0ff;
+            --text-secondary: #a0a0c0;
+            --accent-primary: #7f3fbf;
+            --accent-secondary: #5e3aff;
+            --highlight: #9d4edd;
+        }
+        
+        html, body {
+            scroll-behavior: smooth;
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+        
+        /* Glitch Text Effect */
+        .glitch {
+            position: relative;
+            color: var(--highlight);
+            text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+                         0.025em 0.04em 0 #fffc00;
+            animation: glitch 725ms infinite;
+        }
+        
+        @keyframes glitch {
+            0% {
+                text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+                             0.025em 0.04em 0 #fffc00;
+            }
+            15% {
+                text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+                             0.025em 0.04em 0 #fffc00;
+            }
+            16% {
+                text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+                             -0.05em -0.05em 0 #fffc00;
+            }
+            49% {
+                text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+                             -0.05em -0.05em 0 #fffc00;
+            }
+            50% {
+                text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+                             0 -0.04em 0 #fffc00;
+            }
+            99% {
+                text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+                             0 -0.04em 0 #fffc00;
+            }
+            100% {
+                text-shadow: -0.05em 0 0 #00fffc, -0.025em -0.04em 0 #fc00ff,
+                             -0.04em -0.025em 0 #fffc00;
+            }
+        }
+        
+        /* Animated Underline Navigation */
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .nav-link {
+            position: relative;
+            text-decoration: none;
+            color: rgba(255,255,255,0.8);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding-bottom: 0.25rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--highlight);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        .nav-link:hover {
+            color: white;
+        }
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        
+        /* Tech Badges */
+        .tech-badge {
+            background-color: rgba(127, 63, 191, 0.2);
+            color: var(--highlight);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            transition: transform 0.3s ease;
+        }
+        .tech-badge:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Card Hover Effects */
+        .card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(127, 63, 191, 0.2);
+        }
+        
+        /* Typewriter Effect */
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid var(--highlight);
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: 
+                typing 3.5s steps(40, end),
+                blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--highlight); }
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+            background-color: var(--bg-secondary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--accent-primary);
+            border-radius: 5px;
+        }
+
+        body {
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #1B2735 0%, #090A0F 100%);
+            position: relative;
+        }
+        .full-wh {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            bottom: 0px;
+            width: 100%;
+        }
+        
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .full-wh {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            bottom: 0px;
+            width: 100%;
+        }
+        
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+        }
+        
+    
+    </style>
+</head>
+<body style="background-color: black;">
+
+    <div class="bg-animation" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;">
+        <div id="stars" style="z-index: 1;"></div>
+        <div id="stars2" style="z-index: 2;"></div>
+        <div id="stars3" style="z-index: 3;"></div>
+        <div id="stars4" style="z-index: 4;"></div>
+    </div>
+    
+    <div class="main-content">
+    <nav class="fixed top-0 left-0 w-full bg-[var(--bg-secondary)] text-white z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-2xl font-bold font-mono text-[var(--highlight)]">
+                <a href="index.html">
+                    <img src="logo.png" alt="Logo" class="w-30 h-10 object-contain hover:scale-110 transition-transform">
+                </a>
+            </div>
+            <div id="stars" style="z-index: -1;"></div>
+            <div id="stars2" style="z-index: -2;"></div>
+            <div id="stars3" style="z-index: -3;"></div>
+            <div class="nav-container">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#internships" class="nav-link">Internships</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#certifications" class="nav-link">Certifications</a>
+                <a href="#activities" class="nav-link">Activities</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container w-full max-w-screen-xl mx-auto px-4 pt-24 sm:px-6 lg:px-8">
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center">
+            <div class="text-center">
+                <div class="profile-pic-container w-64 h-64 mx-auto mb-6 overflow-hidden rounded-full border-4 border-[var(--accent-primary)] transform transition-transform duration-300 hover:scale-105 z-[100]">
+                    <img src="profile_pic.jpg" alt="Jadav Gajanand" class="w-full h-full object-cover object-center">
+                </div>
+                <h1 class="text-5xl font-bold mb-4 glitch" data-text="Jadav Gajanand">Jadav Gajanand</h1>
+                <p class="text-2xl mb-6 typewriter text-[var(--text-secondary)]">"Turning Prompts into Code, Data into Decisions, and Models into Reality."</p>
+                
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="mailto:j.gajanand1123@gmail.com" class="text-[var(--highlight)] hover:text-white transition-colors">
+                        <i class="fas fa-envelope text-3xl"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/jadav-gajanand" target="_blank" class="text-[var(--highlight)] hover:text-white transition-colors">
+                        <i class="fab fa-linkedin text-3xl"></i>
+                    </a>
+                    <a href="https://github.com/jadavgajanand" target="_blank" class="text-[var(--highlight)] hover:text-white transition-colors">
+                        <i class="fab fa-github text-3xl"></i>
+                    </a>
+                    <a href="https://www.kaggle.com/jadavgajanand" target="_blank" class="text-[var(--highlight)] hover:text-white transition-colors">
+                        <i class="fab fa-kaggle text-3xl"></i>
+                    </a>
+                </div>
+                
+                <a href="#education" class="inline-block bg-[var(--accent-primary)] text-white px-6 py-3 rounded-full hover:bg-[var(--highlight)] transition-colors">
+                    Explore My Journey
+                </a>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="min-h-screen flex flex-col items-center justify-center scroll-reveal snap-start">
+            <h1 class="text-4xl font-bold mb-12 text-center glitch" data-text="Education">Education</h1>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl w-full">
+                <!-- B.Tech Card -->
+                <div class="card bg-[var(--bg-secondary)] rounded-lg p-4 shadow-lg text-center aspect-square flex flex-col justify-center">
+                    <h2 class="text-xl font-semibold mb-4 text-[var(--highlight)]">B.Tech in Computer Science & Engineering (AIML)</h2>
+                    <p class="text-[var(--text-secondary)] mb-2">
+                        <i class="fas fa-university mr-2"></i>
+                        Institute of aeronautical engineering   
+                    </p>
+                    <p class="text-[var(--text-secondary)] mb-2">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        2023 - Present
+                    </p>
+                    <p class="text-[var(--text-secondary)] mb-4">
+                        <i class="fas fa-chart-line mr-2"></i>
+                        CGPA: 8.63 / 10
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Internships Section -->
+        <section id="internships" class="min-h-screen flex flex-col items-center justify-center scroll-reveal snap-start">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-center glitch" data-text="Internships">
+                Internships
+            </h1>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card bg-[var(--bg-secondary)] p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-2 text-[var(--highlight)]">Machine Learning Intern</h3>
+                    <p class="text-[var(--text-secondary)] mb-2">Tech Innovations Pvt. Ltd.</p>
+                    <p class="text-sm text-[var(--text-secondary)] mb-4">June 2023 - August 2023</p>
+                    <ul class="list-disc list-inside text-[var(--text-secondary)] space-y-2">
+                        <li>Developed predictive models using advanced ML techniques</li>
+                        <li>Implemented data preprocessing and feature engineering</li>
+                    </ul>
+                </div>
+                
+                <div class="card bg-[var(--bg-secondary)] p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-2 text-[var(--highlight)]">Data Science Intern</h3>
+                    <p class="text-[var(--text-secondary)] mb-2">Analytics Solutions</p>
+                    <p class="text-sm text-[var(--text-secondary)] mb-4">January 2023 - March 2023</p>
+                    <ul class="list-disc list-inside text-[var(--text-secondary)] space-y-2">
+                        <li>Conducted data analysis and visualization projects</li>
+                        <li>Created interactive dashboards using Python</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="min-h-screen flex flex-col items-center justify-center scroll-reveal snap-start">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-center glitch" data-text="My Projects">
+                My Projects
+            </h1>
+            
+            <div class="space-y-6">
+                <div class="project-card p-6 mb-4 rounded-lg">
+                    <h2 class="text-2xl font-bold mb-4 text-[var(--highlight)]">Titanic Survival Prediction</h2>
+                    <p class="text-[var(--text-secondary)] mb-4">Developed a machine learning model to predict Titanic passenger survival with 85.4% accuracy.</p>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li>Processed 891 training samples from the Kaggle Titanic dataset</li>
+                        <li>Engineered 12+ key features</li>
+                        <li>Utilized Random Forest Classification</li>
+                    </ul>
+                    <a href="https://github.com/jadavgajanand/titanic-survival-prediction" target="_blank" class="text-[var(--highlight)] hover:underline flex items-center">
+                        <i class="fab fa-github mr-2"></i>View Project on GitHub
+                    </a>
+                </div>
+                
+                <div class="project-card p-6 mb-4 rounded-lg">
+                    <h2 class="text-2xl font-bold mb-4 text-[var(--highlight)]">Email Spam Detection</h2>
+                    <p class="text-[var(--text-secondary)] mb-4">Developed a binary classification model to detect spam emails with ~96% accuracy.</p>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li>Reduced false positives by 12% through feature selection</li>
+                        <li>Optimized Logistic Regression with L2 regularization</li>
+                        <li>Improved precision to 95%</li>
+                    </ul>
+                </div>
+                
+                <div class="project-card p-6 mb-4 rounded-lg">
+                    <h2 class="text-2xl font-bold mb-4 text-[var(--highlight)]">Restaurant Management System</h2>
+                    <p class="text-[var(--text-secondary)] mb-4">A Python-MySQL Solution for managing restaurant operations</p>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li>Improved order processing by 40%</li>
+                        <li>Created modules for menu management (100+ items)</li>
+                        <li>Implemented order tracking, storing 5,000+ records</li>
+                        <li>Developed role-based access control for Admin, Staff, and Customer</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activities Section -->
+        <section id="activities" class="min-h-screen flex flex-col items-center justify-center scroll-reveal snap-start">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-center glitch" data-text="Extracurricular Activities">
+                Extracurricular Activities
+            </h1>
+            
+            <div class="space-y-6">
+                <div class="activity-card p-6 mb-4 rounded-lg">
+                    <h2 class="text-2xl font-bold mb-2 text-[var(--highlight)]">6th Digital Citizen Summit and Community Exchange Program</h2>
+                    <p class="text-[var(--text-secondary)] mb-4">2024 | Participant</p>
+                    <p>Participated in the 6th Digital Citizen Summit and CNX, engaging with thought leaders on digital ethics, security, and emerging technologies.</p>
+                </div>
+                
+                <div class="activity-card p-6 mb-4 rounded-lg">
+                    <h2 class="text-2xl font-bold mb-2 text-[var(--highlight)]">Aspire Leaders Program</h2>
+                    <p class="text-[var(--text-secondary)] mb-4">2024 | Selected Participant</p>
+                    <p>Selected for the Aspire Leaders Program, focusing on leadership development, strategic thinking, and professional growth.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="min-h-screen flex flex-col items-center justify-center scroll-reveal snap-start">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-center glitch" data-text="Skills">
+                Skills
+            </h1>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-[var(--bg-secondary)] p-6 rounded-lg">
+                    <h2 class="text-2xl font-bold mb-4 text-[var(--highlight)]">Programming Languages</h2>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="tech-badge">
+                            <i class="fab fa-python text-4xl mb-2"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="tech-badge">
+                            <i class="fab fa-java text-4xl mb-2"></i>
+                            <span>Java</span>
+                        </div>
+                        <div class="tech-badge">
+                            <i class="fab fa-js-square text-4xl mb-2"></i>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[var(--bg-secondary)] p-6 rounded-lg">
+                    <h2 class="text-2xl font-bold mb-4 text-[var(--highlight)]">Web Development</h2>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="tech-badge">
+                            <i class="fab fa-html5 text-4xl mb-2"></i>
+                            <span>HTML</span>
+                        </div>
+                        <div class="tech-badge">
+                            <i class="fab fa-css3-alt text-4xl mb-2"></i>
+                            <span>CSS</span>
+                        </div>
+                        <div class="tech-badge">
+                            <i class="fab fa-react text-4xl mb-2"></i>
+                            <span>React</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="min-h-screen flex flex-col items-center justify-center scroll-reveal snap-start">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-center glitch" data-text="Certifications">
+                Certifications
+            </h1>
+            
+            <div class="space-y-6 max-w-2xl w-full">
+                <div class="certification-card p-6 mb-4 rounded-lg flex items-center">
+                    <i class="fas fa-certificate text-4xl mr-4 text-[var(--highlight)]"></i>
+                    <div>
+                        <h2 class="text-2xl font-bold text-[var(--highlight)]">SQL Certification</h2>
+                        <p class="text-[var(--text-secondary)]">Intellipaat | Issued Jan 2025</p>
+                    </div>
+                </div>
+                
+                <div class="certification-card p-6 mb-4 rounded-lg flex items-center">
+                    <i class="fas fa-certificate text-4xl mr-4 text-[var(--highlight)]"></i>
+                    <div>
+                        <h2 class="text-2xl font-bold text-[var(--highlight)]">Career Essentials in Generative AI</h2>
+                        <p class="text-[var(--text-secondary)]">Microsoft and LinkedIn | Issued Feb 2025</p>
+                    </div>
+                </div>
+                
+                <div class="certification-card p-6 mb-4 rounded-lg flex items-center">
+                    <i class="fas fa-certificate text-4xl mr-4 text-[var(--highlight)]"></i>
+                    <div>
+                        <h2 class="text-2xl font-bold text-[var(--highlight)]">Kaggle Certified Python Coder</h2>
+                        <p class="text-[var(--text-secondary)]">Kaggle | Issued Mar 2025</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="min-h-screen flex flex-col items-center justify-center scroll-reveal snap-start">
+        <div class="container mx-auto px-4 py-12 w-full">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-center glitch" data-text="Contact Me">
+                Contact Me
+            </h1>
+
+            <div class="max-w-xs mx-auto bg-[var(--bg-secondary)] p-4 rounded-lg shadow-xl transform transition-transform duration-300 hover:scale-105">
+                <form id="contact-form" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-[var(--text-secondary)] mb-2">Name</label>
+                        <input type="text" id="name" name="name" required class="w-full px-3 py-2 bg-[var(--bg-secondary)] text-[var(--text-primary)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--highlight)]">
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-[var(--text-secondary)] mb-2">Email</label>
+                        <input type="email" id="email" name="email" required class="w-full px-3 py-2 bg-[var(--bg-secondary)] text-[var(--text-primary)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--highlight)]">
+                    </div>
+
+                    <div>
+                        <label for="subject" class="block text-[var(--text-secondary)] mb-2">Subject</label>
+                        <input type="text" id="subject" name="subject" required class="w-full px-3 py-2 bg-[var(--bg-secondary)] text-[var(--text-primary)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--highlight)]">
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-[var(--text-secondary)] mb-2">Message</label>
+                        <textarea id="message" name="message" rows="4" required class="w-full px-3 py-2 bg-[var(--bg-secondary)] text-[var(--text-primary)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--highlight)]"></textarea>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="w-full py-3 rounded-lg text-lg font-bold uppercase tracking-wider bg-[var(--accent-primary)] text-white hover:bg-[var(--highlight)] transition-colors">
+                            Send Message
+                        </button>
+                    </div>
+
+                    <div id="form-status" class="text-center text-[var(--text-secondary)] mt-4"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- EmailJS Script -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("1IlJs8SE2tezmBgIC"); // Replace with your EmailJS user ID
+        })();
+
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formStatus = document.getElementById('form-status');
+            formStatus.textContent = 'Sending...';
+
+            emailjs.sendForm('service_hpdzv9c', 'template_n5rcgfv', this)
+                .then(function() {
+                    formStatus.textContent = 'Message sent successfully!';
+                    formStatus.style.color = 'green';
+                    event.target.reset();
+                }, function(error) {
+                    formStatus.textContent = 'Failed to send message. Please try again.';
+                    formStatus.style.color = 'red';
+                    console.log('Error:', error);
+                });
+        });
+    </script>
+</body>
+</html>
