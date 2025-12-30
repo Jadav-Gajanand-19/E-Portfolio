@@ -132,7 +132,7 @@ export default function Contact() {
                                             href={link.href}
                                             target={link.href.startsWith('mailto') ? '_self' : '_blank'}
                                             rel="noopener noreferrer"
-                                            className="text-slate-200 hover:text-cyber-green transition-colors font-mono text-sm"
+                                            className="text-slate-200 hover:text-cyber-green transition-colors font-mono text-xs sm:text-sm break-all"
                                         >
                                             {link.value}
                                         </a>

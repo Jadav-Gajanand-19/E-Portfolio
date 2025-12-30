@@ -231,111 +231,113 @@ export default function Navbar() {
                             className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm"
                         />
 
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            exit={{ opacity: 0, scale: 0.9 }}
-                            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-md"
-                        >
-                            <div className="mx-4 bg-[#0a0a12] border border-cyber-green/20 rounded-2xl shadow-2xl shadow-cyber-green/10 overflow-hidden">
-                                {/* Header */}
-                                <div className="flex items-center gap-3 px-5 py-4 border-b border-[#1a1a2e]">
-                                    <Terminal className="w-5 h-5 text-cyber-green" />
-                                    <span className="text-sm font-mono text-slate-300">Quick Navigation</span>
-                                    <button
-                                        onClick={() => setIsCommandOpen(false)}
-                                        className="ml-auto p-1.5 text-slate-500 hover:text-white hover:bg-white/10 rounded-lg transition-all"
-                                    >
-                                        <X className="w-4 h-4" />
-                                    </button>
-                                </div>
-
-                                {/* Commands */}
-                                <div className="p-3 space-y-1 max-h-[60vh] overflow-y-auto">
-                                    {navItems.map((item) => (
+                        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                                animate={{ opacity: 1, scale: 1, y: 0 }}
+                                exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                                className="w-full max-w-md pointer-events-auto"
+                            >
+                                <div className="bg-[#0a0a12] border border-cyber-green/20 rounded-2xl shadow-2xl shadow-cyber-green/10 overflow-hidden">
+                                    {/* Header */}
+                                    <div className="flex items-center gap-3 px-5 py-4 border-b border-[#1a1a2e]">
+                                        <Terminal className="w-5 h-5 text-cyber-green" />
+                                        <span className="text-sm font-mono text-slate-300">Quick Navigation</span>
                                         <button
-                                            key={item.id}
-                                            onClick={() => {
-                                                scrollTo(item.id)
-                                                setIsCommandOpen(false)
-                                            }}
-                                            className="flex items-center gap-4 w-full px-4 py-3 text-left rounded-xl hover:bg-cyber-green/10 transition-all group"
+                                            onClick={() => setIsCommandOpen(false)}
+                                            className="ml-auto p-1.5 text-slate-500 hover:text-white hover:bg-white/10 rounded-lg transition-all"
                                         >
-                                            <div className="w-10 h-10 flex items-center justify-center bg-[#1a1a2e] rounded-lg group-hover:bg-cyber-green/20 transition-all">
-                                                <item.icon className="w-5 h-5 text-slate-400 group-hover:text-cyber-green" />
+                                            <X className="w-4 h-4" />
+                                        </button>
+                                    </div>
+
+                                    {/* Commands */}
+                                    <div className="p-3 space-y-1 max-h-[60vh] overflow-y-auto">
+                                        {navItems.map((item) => (
+                                            <button
+                                                key={item.id}
+                                                onClick={() => {
+                                                    scrollTo(item.id)
+                                                    setIsCommandOpen(false)
+                                                }}
+                                                className="flex items-center gap-4 w-full px-4 py-3 text-left rounded-xl hover:bg-cyber-green/10 transition-all group"
+                                            >
+                                                <div className="w-10 h-10 flex items-center justify-center bg-[#1a1a2e] rounded-lg group-hover:bg-cyber-green/20 transition-all">
+                                                    <item.icon className="w-5 h-5 text-slate-400 group-hover:text-cyber-green" />
+                                                </div>
+                                                <div className="flex-1">
+                                                    <p className="font-mono text-sm text-slate-200">{item.label}</p>
+                                                    <p className="text-xs text-slate-500">Jump to section</p>
+                                                </div>
+                                                <span className="text-xs font-mono text-slate-600 bg-[#1a1a2e] px-2 py-1 rounded hidden sm:block">
+                                                    {item.shortcut}
+                                                </span>
+                                            </button>
+                                        ))}
+
+                                        <div className="border-t border-[#1a1a2e] my-2" />
+
+                                        <a
+                                            href="/resume.pdf"
+                                            download="Gajanand_Resume.pdf"
+                                            className="flex items-center gap-4 w-full px-4 py-3 text-left rounded-xl hover:bg-neon-purple/10 transition-all group"
+                                        >
+                                            <div className="w-10 h-10 flex items-center justify-center bg-[#1a1a2e] rounded-lg group-hover:bg-neon-purple/20 transition-all">
+                                                <FileText className="w-5 h-5 text-slate-400 group-hover:text-neon-purple" />
                                             </div>
                                             <div className="flex-1">
-                                                <p className="font-mono text-sm text-slate-200">{item.label}</p>
-                                                <p className="text-xs text-slate-500">Jump to section</p>
+                                                <p className="font-mono text-sm text-slate-200">Download Resume</p>
+                                                <p className="text-xs text-slate-500">PDF file</p>
                                             </div>
-                                            <span className="text-xs font-mono text-slate-600 bg-[#1a1a2e] px-2 py-1 rounded hidden sm:block">
-                                                {item.shortcut}
-                                            </span>
-                                        </button>
-                                    ))}
-
-                                    <div className="border-t border-[#1a1a2e] my-2" />
-
-                                    <a
-                                        href="/resume.pdf"
-                                        download="Gajanand_Resume.pdf"
-                                        className="flex items-center gap-4 w-full px-4 py-3 text-left rounded-xl hover:bg-neon-purple/10 transition-all group"
-                                    >
-                                        <div className="w-10 h-10 flex items-center justify-center bg-[#1a1a2e] rounded-lg group-hover:bg-neon-purple/20 transition-all">
-                                            <FileText className="w-5 h-5 text-slate-400 group-hover:text-neon-purple" />
-                                        </div>
-                                        <div className="flex-1">
-                                            <p className="font-mono text-sm text-slate-200">Download Resume</p>
-                                            <p className="text-xs text-slate-500">PDF file</p>
-                                        </div>
-                                    </a>
-
-                                    <a
-                                        href="mailto:j.gajanand1123@gmail.com"
-                                        className="flex items-center gap-4 w-full px-4 py-3 text-left rounded-xl hover:bg-cyber-cyan/10 transition-all group"
-                                    >
-                                        <div className="w-10 h-10 flex items-center justify-center bg-[#1a1a2e] rounded-lg group-hover:bg-cyber-cyan/20 transition-all">
-                                            <Mail className="w-5 h-5 text-slate-400 group-hover:text-cyber-cyan" />
-                                        </div>
-                                        <div className="flex-1">
-                                            <p className="font-mono text-sm text-slate-200">Send Email</p>
-                                            <p className="text-xs text-slate-500">j.gajanand1123@gmail.com</p>
-                                        </div>
-                                    </a>
-
-                                    <div className="border-t border-[#1a1a2e] my-2" />
-
-                                    {/* Social links in command palette for mobile */}
-                                    <div className="flex gap-2 px-4">
-                                        <a
-                                            href="https://github.com/Jadav-Gajanand-19"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex-1 flex items-center justify-center gap-2 py-3 bg-[#1a1a2e] hover:bg-white/10 rounded-xl transition-all"
-                                        >
-                                            <Github className="w-5 h-5 text-slate-400" />
-                                            <span className="text-sm text-slate-400">GitHub</span>
                                         </a>
+
                                         <a
-                                            href="https://www.linkedin.com/in/jadav-gajanand-3aa946290"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex-1 flex items-center justify-center gap-2 py-3 bg-[#1a1a2e] hover:bg-white/10 rounded-xl transition-all"
+                                            href="mailto:j.gajanand1123@gmail.com"
+                                            className="flex items-center gap-4 w-full px-4 py-3 text-left rounded-xl hover:bg-cyber-cyan/10 transition-all group"
                                         >
-                                            <Linkedin className="w-5 h-5 text-slate-400" />
-                                            <span className="text-sm text-slate-400">LinkedIn</span>
+                                            <div className="w-10 h-10 flex items-center justify-center bg-[#1a1a2e] rounded-lg group-hover:bg-cyber-cyan/20 transition-all">
+                                                <Mail className="w-5 h-5 text-slate-400 group-hover:text-cyber-cyan" />
+                                            </div>
+                                            <div className="flex-1">
+                                                <p className="font-mono text-sm text-slate-200">Send Email</p>
+                                                <p className="text-xs text-slate-500">j.gajanand1123@gmail.com</p>
+                                            </div>
                                         </a>
+
+                                        <div className="border-t border-[#1a1a2e] my-2" />
+
+                                        {/* Social links in command palette for mobile */}
+                                        <div className="flex gap-2 px-4">
+                                            <a
+                                                href="https://github.com/Jadav-Gajanand-19"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex-1 flex items-center justify-center gap-2 py-3 bg-[#1a1a2e] hover:bg-white/10 rounded-xl transition-all"
+                                            >
+                                                <Github className="w-5 h-5 text-slate-400" />
+                                                <span className="text-sm text-slate-400">GitHub</span>
+                                            </a>
+                                            <a
+                                                href="https://www.linkedin.com/in/jadav-gajanand-3aa946290"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex-1 flex items-center justify-center gap-2 py-3 bg-[#1a1a2e] hover:bg-white/10 rounded-xl transition-all"
+                                            >
+                                                <Linkedin className="w-5 h-5 text-slate-400" />
+                                                <span className="text-sm text-slate-400">LinkedIn</span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    {/* Footer - Hide on mobile */}
+                                    <div className="px-5 py-3 border-t border-[#1a1a2e] bg-[#0a0a0f] hidden sm:block">
+                                        <p className="text-xs font-mono text-slate-600 text-center">
+                                            Press <span className="text-slate-400">1-5</span> to navigate • <span className="text-slate-400">ESC</span> to close
+                                        </p>
                                     </div>
                                 </div>
-
-                                {/* Footer - Hide on mobile */}
-                                <div className="px-5 py-3 border-t border-[#1a1a2e] bg-[#0a0a0f] hidden sm:block">
-                                    <p className="text-xs font-mono text-slate-600 text-center">
-                                        Press <span className="text-slate-400">1-5</span> to navigate • <span className="text-slate-400">ESC</span> to close
-                                    </p>
-                                </div>
-                            </div>
-                        </motion.div>
+                            </motion.div>
+                        </div>
                     </>
                 )}
             </AnimatePresence>

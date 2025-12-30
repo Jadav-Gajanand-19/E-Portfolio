@@ -201,7 +201,7 @@ export default function Projects() {
 
                                 {/* Projects inside folder */}
                                 {openCategories[category.name] && (
-                                    <div className="ml-6 pl-4 border-l border-[#1a1a2e]">
+                                    <div className="ml-2 sm:ml-6 pl-3 sm:pl-4 border-l border-[#1a1a2e]">
                                         {category.projects.map((project, projIndex) => (
                                             <motion.div
                                                 key={project.name}
@@ -211,8 +211,8 @@ export default function Projects() {
                                                 className={`group py-3 px-3 my-1 rounded-lg hover:bg-white/5 transition-all ${project.featured ? 'bg-cyber-green/5 border border-cyber-green/20' : ''
                                                     }`}
                                             >
-                                                <div className="flex items-start gap-3">
-                                                    <FileCode className={`w-4 h-4 mt-0.5 ${project.featured ? 'text-cyber-green' : 'text-slate-500'
+                                                <div className="flex items-start gap-2 sm:gap-3">
+                                                    <FileCode className={`w-4 h-4 mt-0.5 shrink-0 ${project.featured ? 'text-cyber-green' : 'text-slate-500'
                                                         }`} />
                                                     <div className="flex-1 min-w-0">
                                                         <div className="flex items-center gap-2">
@@ -220,7 +220,7 @@ export default function Projects() {
                                                                 {project.name}
                                                             </p>
                                                             {project.featured && (
-                                                                <Star className="w-3 h-3 text-cyber-green fill-cyber-green" />
+                                                                <Star className="w-3 h-3 text-cyber-green fill-cyber-green shrink-0" />
                                                             )}
                                                         </div>
                                                         <p className="text-xs text-slate-500 mt-1 line-clamp-2">
@@ -238,7 +238,7 @@ export default function Projects() {
                                                         href={project.github}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="p-1.5 text-slate-500 hover:text-cyber-green hover:bg-cyber-green/10 rounded transition-all opacity-0 group-hover:opacity-100"
+                                                        className="p-1.5 text-slate-500 hover:text-cyber-green hover:bg-cyber-green/10 rounded transition-all md:opacity-0 md:group-hover:opacity-100"
                                                     >
                                                         <ExternalLink className="w-4 h-4" />
                                                     </a>

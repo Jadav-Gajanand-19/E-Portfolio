@@ -40,10 +40,10 @@ export default function Hero() {
                             </div>
 
                             {/* Terminal content with profile image */}
-                            <div className="p-6 flex items-center gap-6">
+                            <div className="p-4 sm:p-6 flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6">
                                 {/* Profile Image */}
                                 <div className="relative shrink-0">
-                                    <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden border-2 border-cyber-green/30 bg-[#0f0f18]">
+                                    <div className="w-20 h-20 sm:w-28 sm:h-28 rounded-xl overflow-hidden border-2 border-cyber-green/30 bg-[#0f0f18]">
                                         <img
                                             src="/profile.jpg"
                                             alt="Gajanand"
@@ -59,22 +59,24 @@ export default function Hero() {
                                         </div>
                                     </div>
                                     {/* Status indicator */}
-                                    <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-cyber-green rounded-full border-2 border-deep-black flex items-center justify-center">
-                                        <div className="w-2 h-2 bg-white rounded-full" />
+                                    <div className="absolute -bottom-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 bg-cyber-green rounded-full border-2 border-deep-black flex items-center justify-center">
+                                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full" />
                                     </div>
                                 </div>
 
                                 {/* Name and Title */}
-                                <div className="flex-1 min-w-0">
-                                    <pre className="text-cyber-green text-[8px] sm:text-[9px] leading-tight select-none overflow-x-auto">
-                                        {`██████╗  █████╗      ██╗ █████╗ ███╗   ██╗ █████╗ ███╗   ██╗██████╗ 
+                                <div className="flex-1 w-full min-w-0 flex flex-col items-center sm:items-start overflow-hidden">
+                                    <div className="w-full flex justify-center sm:justify-start">
+                                        <pre className="text-cyber-green text-[6px] xs:text-[7px] sm:text-[9px] leading-tight select-none overflow-x-auto max-w-full">
+                                            {`██████╗  █████╗      ██╗ █████╗ ███╗   ██╗ █████╗ ███╗   ██╗██████╗ 
 ██╔════╝ ██╔══██╗     ██║██╔══██╗████╗  ██║██╔══██╗████╗  ██║██╔══██╗
 ██║  ███╗███████║     ██║███████║██╔██╗ ██║███████║██╔██╗ ██║██║  ██║
 ██║   ██║██╔══██║██   ██║██╔══██║██║╚██╗██║██╔══██║██║╚██╗██║██║  ██║
 ╚██████╔╝██║  ██║╚█████╔╝██║  ██║██║ ╚████║██║  ██║██║ ╚████║██████╔╝
  ╚═════╝ ╚═╝  ╚═╝ ╚════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝`}
-                                    </pre>
-                                    <p className="text-slate-500 text-xs mt-3 font-mono">AI Engineer • Full-Stack Developer</p>
+                                        </pre>
+                                    </div>
+                                    <p className="text-slate-500 text-[10px] sm:text-xs mt-3 font-mono text-center sm:text-left">AI Engineer • Full-Stack Developer</p>
                                 </div>
                             </div>
                         </div>
@@ -111,7 +113,7 @@ export default function Hero() {
                             &gt; system.initialize()
                         </motion.p>
 
-                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                             <span className="text-slate-100">Building</span>
                             <br />
                             <motion.span

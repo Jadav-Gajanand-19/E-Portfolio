@@ -71,12 +71,12 @@ export default function Experience() {
                             initial={{ opacity: 0, x: -20 }}
                             animate={isInView ? { opacity: 1, x: 0 } : {}}
                             transition={{ duration: 0.5, delay: 0.1 * index }}
-                            className="relative pl-12 pb-10 last:pb-0"
+                            className="relative pl-10 sm:pl-12 pb-10 last:pb-0"
                         >
                             {/* Git branch icon */}
                             <div className={`absolute left-0 w-10 h-10 flex items-center justify-center border ${exp.active
-                                    ? 'border-cyber-green bg-cyber-green/10 text-cyber-green'
-                                    : 'border-panel-border bg-panel-bg text-slate-500'
+                                ? 'border-cyber-green bg-cyber-green/10 text-cyber-green'
+                                : 'border-panel-border bg-panel-bg text-slate-500'
                                 }`}>
                                 <GitBranch className="w-4 h-4" />
                             </div>

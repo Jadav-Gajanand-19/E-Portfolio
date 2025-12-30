@@ -329,7 +329,7 @@ export default function Certifications() {
                                                 <Award className={`w-4 h-4 ${cert.featured ? 'text-cyber-green' : 'text-slate-500'}`} />
                                             </div>
                                             <div className="flex-1 min-w-0">
-                                                <p className="text-sm font-medium text-slate-200 truncate">{cert.name}</p>
+                                                <p className="text-sm font-medium text-slate-200 sm:truncate">{cert.name}</p>
                                                 <div className="flex items-center gap-2 mt-1">
                                                     <Building2 className="w-3 h-3 text-slate-600" />
                                                     <p className="text-xs text-slate-500">{cert.issuer}</p>
