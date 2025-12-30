@@ -66,12 +66,152 @@ const achievements = [
 ]
 
 const certifications = [
+    // December 2025
+    {
+        name: 'AWS Academy Graduate - Cloud Foundations',
+        issuer: 'Amazon Web Services (AWS)',
+        date: 'December 2025',
+        category: 'Cloud',
+        featured: true
+    },
+    {
+        name: 'Certificate of Participation - Agentathon',
+        issuer: 'Google Developers Group Hyderabad',
+        date: 'December 2025',
+        category: 'Hackathon',
+        featured: true
+    },
+    {
+        name: 'Certificate of Participation - Hack-A-Thon 1.0',
+        issuer: 'Unstop',
+        date: 'December 2025',
+        credentialId: 'a0c81ca6-963d-4f38-b0ff-cea1c97bd9b8',
+        category: 'Hackathon'
+    },
+    // June 2025
+    {
+        name: 'AI Engineer',
+        issuer: 'OneRoadmap',
+        date: 'June 2025',
+        credentialId: 'CERT-97635698',
+        category: 'AI/ML',
+        featured: true
+    },
+    // May 2025
+    {
+        name: 'Fine Tuning Large Language Models',
+        issuer: 'DeepLearning.AI',
+        date: 'May 2025',
+        category: 'AI/ML',
+        featured: true
+    },
+    {
+        name: 'Microsoft AI Skill Fest',
+        issuer: 'Microsoft',
+        date: 'May 2025',
+        category: 'AI/ML'
+    },
+    {
+        name: 'Quantum Computing',
+        issuer: 'IIT Roorkee',
+        date: 'May 2025',
+        category: 'Computing'
+    },
+    // April 2025
+    {
+        name: 'Generative AI Fundamentals',
+        issuer: 'Databricks',
+        date: 'April 2025',
+        category: 'AI/ML'
+    },
+    {
+        name: 'Introduction to Generative AI',
+        issuer: 'Amazon Web Services (AWS)',
+        date: 'April 2025',
+        category: 'AI/ML'
+    },
+    {
+        name: 'Introduction to Programming Using Python',
+        issuer: 'Kaggle',
+        date: 'April 2025',
+        category: 'Programming'
+    },
+    {
+        name: 'Prompt Engineering for Everyone',
+        issuer: 'Cognitive Class',
+        date: 'April 2025',
+        category: 'AI/ML'
+    },
+    // March 2025
+    {
+        name: 'AI and ChatGPT Workshop',
+        issuer: 'Be10x',
+        date: 'March 2025',
+        category: 'Workshop'
+    },
+    {
+        name: 'Aspire Leaders Program',
+        issuer: 'Aspire Institute',
+        date: 'March 2025',
+        category: 'Leadership'
+    },
+    {
+        name: 'Kaggle Certified Python Coder',
+        issuer: 'Kaggle',
+        date: 'March 2025',
+        category: 'Programming'
+    },
+    // February 2025
+    {
+        name: 'SQL Course',
+        issuer: 'Intellipaat',
+        date: 'February 2025',
+        category: 'Database'
+    },
+    // December 2024
+    {
+        name: 'Winter Coding Contest 4.0',
+        issuer: 'Unstop',
+        date: 'December 2024',
+        category: 'Competition'
+    },
+    {
+        name: 'Python Preparatory Certification',
+        issuer: 'Intellipaat',
+        date: 'December 2024',
+        category: 'Programming'
+    },
+    // November 2024
+    {
+        name: '6th Digital Citizen Summit',
+        issuer: 'Digital Empowerment Foundation',
+        date: 'November 2024',
+        category: 'Summit'
+    },
+    {
+        name: 'NITS Hacks 7.0 - Software Track',
+        issuer: 'Unstop',
+        date: 'November 2024',
+        category: 'Hackathon'
+    },
+    {
+        name: 'Mete Project Expo 2024',
+        issuer: 'IARE',
+        date: 'November 2024',
+        category: 'Event'
+    },
+    // September 2024
     {
         name: 'Career Essentials in Generative AI',
         issuer: 'Microsoft & LinkedIn',
         date: 'September 2024',
-        category: 'AI/ML',
-        featured: true
+        category: 'AI/ML'
+    },
+    {
+        name: 'TATA Crucible Campus Quiz 2024',
+        issuer: 'Unstop',
+        date: 'September 2024',
+        category: 'Quiz'
     },
     {
         name: 'Ethics in the Age of Generative AI',
@@ -91,51 +231,18 @@ const certifications = [
         date: 'September 2024',
         category: 'AI/ML'
     },
+    // August 2024
     {
-        name: 'Winter Coding Contest 4.0',
-        issuer: 'Unstop',
-        date: 'December 2024',
-        credentialId: 'a55e477f-1b45-47e5-b4c8-4e209e1cacc0',
-        category: 'Competition'
+        name: 'Generative AI: The Evolution of Thoughtful Online Search',
+        issuer: 'LinkedIn',
+        date: 'August 2024',
+        category: 'AI/ML'
     },
     {
-        name: 'Python Preparatory Certification',
-        issuer: 'Intellipaat',
-        date: 'December 2024',
-        credentialId: '31679-1126828-283622',
-        category: 'Programming'
-    },
-    {
-        name: '6th Digital Citizen Summit',
-        issuer: 'Digital Empowerment Foundation',
-        date: 'November 2024',
-        category: 'Summit'
-    },
-    {
-        name: 'NITS Hacks 7.0 - Software Track',
-        issuer: 'Unstop',
-        date: 'November 2024',
-        credentialId: '7175759a-701d-4f7a-b2d5-f439196b5dc9',
-        category: 'Hackathon'
-    },
-    {
-        name: 'Mete Project Expo 2024',
-        issuer: 'IARE',
-        date: 'November 2024',
-        category: 'Event'
-    },
-    {
-        name: 'TATA Crucible Campus Quiz 2024',
-        issuer: 'Unstop',
-        date: 'September 2024',
-        credentialId: '14d8c7b7-5759-4d94-bfaa-ecf9a0cb1188',
-        category: 'Quiz'
-    },
-    {
-        name: 'Computer Science 101 Workshop',
-        issuer: 'Workshop Certification',
-        date: '2024',
-        category: 'Workshop'
+        name: 'Streamlining Your Work with Microsoft Bing Chat',
+        issuer: 'LinkedIn',
+        date: 'August 2024',
+        category: 'AI/ML'
     }
 ]
 
@@ -143,7 +250,7 @@ const stats = [
     { value: '10+', label: 'Hackathons' },
     { value: '2', label: '2nd Places' },
     { value: '1', label: '3rd Place' },
-    { value: '11+', label: 'Certifications' }
+    { value: '27+', label: 'Certifications' }
 ]
 
 export default function Certifications() {
